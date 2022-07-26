@@ -1,0 +1,109 @@
+<html>
+
+<head>
+    <title>Pawn Game</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 50.25px);
+            grid-gap: 0;
+        }
+
+        .field {
+            height: 40.25px;
+            text-align: right, bottom;
+            border: 1px solid;
+        }
+
+        .pawn:after {
+            margin: 10px;
+            content: "\265F";
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="start(event)" id="startBtn">Start</button><button onclick="stop()">Stop</button>
+    <div class="game-container">
+        <div class="grid-container">
+            <div class="field pawn"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+        </div>
+    </div>
+    <script>
+        let position = 1;
+        let interval;
+        const ele = document.getElementsByClassName('field');
+
+        Array.from(ele).forEach(function (element) {
+            element.addEventListener('click', event => {
+                selected(event.target)
+            });
+        });
+        document.body.addEventListener('click', stop);
+
+        function start(event) {
+            event.stopPropagation();
+
+            interval = setInterval(function () {
+                if (position > 0) {
+                    ele[position - 1].classList.remove('pawn');
+                    ele[ele.length - 1]?.classList?.remove('pawn');
+                }
+
+                ele[position].classList.add('pawn');
+                position++;
+
+                if (position == ele.length) {
+                    position = 0;
+                }
+            }
+
+                , 1000);
+        }
+
+        function stop() {
+            clearInterval(interval)
+        }
+
+        function selected(event) {
+            let fields = [];
+            fields = document.getElementsByClassName('field');
+            let i = 0;
+
+            Array.from(fields).forEach(function (element) {
+                if (element.classList.contains('pawn')) {
+                    position = i;
+                }
+
+                i++;
+            }); removePawnAll();
+            event.classList.add('pawn');
+        }
+
+        function removePawnAll() {
+            const pawns = document.getElementsByClassName('pawn');
+             Array.from(pawns).forEach(function (element) {
+                element.classList.remove('pawn')
+            })
+        }
+
+    </script>
+</body>
+
+</html>
