@@ -12,3 +12,4 @@ pawn should move there and stop "playing".
 
 ## Runnig Solution
 https://codepen.io/tanaji710/pen/JjLrdMP
+![image](https://user-images.githubusercontent.com/17041608/181063121-9fc9abf1-a24d-4ec6-8203-14c6dce2b3fe.png)
