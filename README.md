@@ -9,3 +9,6 @@ The "Stop" button should stop the pawn of that game. Also, clicking outside of t
 Additionally, when one of the fields is clicked; the
 
 pawn should move there and stop "playing".
+
+## Runnig Solution
+https://codepen.io/tanaji710/pen/JjLrdMP
